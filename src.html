@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Architaste - projektowanie wnętrz w Krakowie (podgląd koncepcji)</title>
+<meta name="description" content="Podgląd koncepcji nowej strony pracowni architektury wnętrz Architaste z Krakowa.">
+<meta name="theme-color" content="#2A2724">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232A2724'/%3E%3Cpath fill='%23fff' transform='translate(12 6) scale(.86)' d='M35 2 79 99 57 99 49 78 2 78 8 63 41 63 26 26Z'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/inter-rdzen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero-m-540.webp" imagesrcset="img/hero-m-540.webp 540w, img/hero-m-853.webp 853w" imagesizes="100vw" media="(max-width:760px)">
+<link rel="preload" as="image" href="img/hero-1600.webp" imagesrcset="img/hero-1024.webp 1024w, img/hero-1600.webp 1600w, img/hero-1920.webp 1920w" imagesizes="100vw" media="(min-width:761px)">
+<style>
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/inter-rdzen.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0,U+00A9,U+00AB,U+00B0,U+00B7,U+00BB,U+00D3,U+00D7,U+00F3,U+2013-2014,U+2018-2019,U+201C-201E,U+2022,U+2026,U+20AC}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/inter-pl.woff2) format("woff2");unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+:root{--graf:#2A2724;--graf2:#211F1D;--braz:#7D6741;--braz-c:#6A5736;--braz-j:#C2A877;--szary:#F2F3F4;--linia:#DDDFE2;--tekst:#22201E;--tekst2:#5B5E63;--wrap:min(1840px,100% - 2*clamp(16px,3.4vw,64px));--hh:72px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:var(--hh)}
+body{margin:0;background:#fff;color:var(--tekst);font:400 17px/1.62 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-weight:500;letter-spacing:-.02em;margin:0}
+h2{font-size:clamp(30px,3.3vw,52px);line-height:1.1}
+h3{font-size:19px;line-height:1.3;letter-spacing:-.01em}
+p{margin:0}
+.wrap{width:var(--wrap);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* przycisk: prawa krawedz scieta jak kreska litery A z logo */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 40px 0 26px;background:var(--braz);color:#fff;text-decoration:none;font-weight:600;font-size:16px;border:0;cursor:pointer;clip-path:polygon(0 0,100% 0,calc(100% - 20px) 100%,0 100%);transition:background .2s}
+.btn:hover{background:var(--braz-c)}
+.btn svg{width:18px;height:12px;flex:none}
+
+/* naglowek */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--hh);color:#fff;transition:background .25s,color .25s,box-shadow .25s}
+.top.sc{background:#fff;color:var(--tekst);box-shadow:0 1px 0 var(--linia)}
+.top .wrap{height:100%;display:flex;align-items:center;gap:28px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.logo svg{width:30px;height:37px;fill:currentColor}
+.logo span{font-size:30px;font-weight:400;letter-spacing:-.025em;line-height:1}
+.nav{display:flex;gap:30px;margin-left:auto}
+.nav a{text-decoration:none;font-size:15.5px;font-weight:500;padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover{border-color:currentColor}
+.tel{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:15.5px;white-space:nowrap}
+.tel svg{width:17px;height:17px;flex:none}
+.burger{display:none;margin-left:auto;width:46px;height:46px;border:0;background:none;cursor:pointer;padding:0;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;transition:transform .25s,opacity .2s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:22px}.burger i:nth-child(3){top:28px}
+.menu-open .burger i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-open .burger i:nth-child(2){opacity:0}
+.menu-open .burger i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mnav{display:none}
+
+/* pierwszy ekran */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:var(--graf);clip-path:polygon(0 0,100% 0,100% calc(100% - 150px),calc(100% - 68px) 100%,0 100%)}
+.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%}
+.hero picture img{object-fit:cover;object-position:60% 50%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(24,22,20,.86) 0%,rgba(24,22,20,.62) 34%,rgba(24,22,20,.1) 62%,rgba(24,22,20,.2) 82%,rgba(24,22,20,.58) 100%)}
+.hero-in{position:relative;z-index:1;padding:calc(var(--hh) + 40px) 0 clamp(56px,10svh,120px)}
+.hero h1{font-size:clamp(36px,4.7vw,78px);line-height:1.06;max-width:15.5em;letter-spacing:-.03em}
+.hero h1 span{display:block}
+.hero .lead{font-size:clamp(17px,1.35vw,21px);max-width:36em;margin-top:22px;color:rgba(255,255,255,.9)}
+.hero .btn{margin-top:34px}
+.hero .adr{margin-top:22px;font-size:14.5px;color:rgba(255,255,255,.78)}
+
+/* sekcje */
+.sek{padding:clamp(72px,9vw,140px) 0}
+.sz{background:var(--szary)}
+.glowa{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(32px,4vw,56px)}
+.glowa p{color:var(--tekst2);max-width:38em;margin-top:14px}
+
+/* pracownia */
+.prac{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(40px,7vw,140px);align-items:start}
+.prac .txt p{margin-top:20px;color:var(--tekst2);max-width:40em}
+.prac .txt p:first-of-type{font-size:clamp(19px,1.45vw,23px);color:var(--tekst);line-height:1.5}
+.wyr{list-style:none;margin:0;padding:0;border-top:1px solid var(--linia)}
+.wyr li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;padding:22px 0;border-bottom:1px solid var(--linia)}
+.wyr b{display:block;font-weight:600;font-size:17.5px;line-height:1.35}
+.wyr span{display:block;color:var(--tekst2);font-size:15.5px;margin-top:3px}
+.zn{width:34px;height:26px;margin-top:2px;stroke:var(--braz);stroke-width:2.2;fill:none}
+
+/* realizacje - pas */
+.pas-nav{display:flex;gap:8px;flex:none}
+.pas-nav button{width:52px;height:52px;border:1px solid #C9CCD0;background:#fff;cursor:pointer;display:grid;place-items:center;transition:border-color .2s,opacity .2s}
+.pas-nav button:hover{border-color:var(--tekst)}
+.pas-nav button:disabled{opacity:.35;cursor:default}
+.pas-nav svg{width:18px;height:14px}
+.pas{list-style:none;margin:0;padding:0;display:grid;grid-auto-flow:column;grid-auto-columns:84%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab}
+.pas::-webkit-scrollbar{display:none}
+.pas.drag{cursor:grabbing;scroll-snap-type:none}
+.pas.drag *{pointer-events:none}
+.kr{scroll-snap-align:start;min-width:0}
+.kr-f,.of-f{display:block;width:100%;padding:0;border:0;background:#D9DBDE;cursor:zoom-in;aspect-ratio:4/3;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 44px),calc(100% - 20px) 100%,0 100%)}
+.kr-f img,.of-f img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.kr-f:hover img,.of-f:hover img{transform:scale(1.03)}
+.kr-t{margin-top:16px;font-size:18px;font-weight:500;line-height:1.35;letter-spacing:-.01em}
+.kr-k{margin-top:4px;font-size:14.5px;color:var(--tekst2)}
+
+/* oferta */
+.oferta{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(28px,2.6vw,44px) clamp(16px,1.8vw,32px)}
+.of h3{margin-top:16px}
+.of p{margin-top:6px;color:var(--tekst2);font-size:15.5px;line-height:1.5}
+.meble{margin-top:clamp(40px,5vw,64px);padding-top:28px;border-top:1px solid var(--linia);display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap}
+.meble p{max-width:52em;color:var(--tekst2)}
+.meble p b{color:var(--tekst);font-weight:600}
+
+/* proces - jedyna ciemna sekcja */
+.ciem{background:var(--graf);color:#fff}
+.proc{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(40px,7vw,140px);align-items:start}
+.proc figure{margin:0}
+.proc figure .fot{aspect-ratio:4/5;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 56px),calc(100% - 25px) 100%,0 100%)}
+.proc figure img{width:100%;height:100%;object-fit:cover}
+.proc figcaption{margin-top:14px;font-size:14.5px;color:rgba(255,255,255,.66)}
+.proc .lead{margin-top:18px;color:rgba(255,255,255,.78);max-width:36em}
+.kroki{list-style:none;margin:36px 0 0;padding:0;counter-reset:k}
+.kroki li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:18px;padding:24px 0;border-top:1px solid rgba(255,255,255,.14)}
+.kroki li:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.kroki .zn{stroke:var(--braz-j);width:42px;height:30px}
+.kroki p{margin-top:6px;color:rgba(255,255,255,.72);font-size:16px}
+.proc .btn{margin-top:40px}
+
+/* kontakt */
+.kont{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(40px,6vw,120px);align-items:start}
+.kont .txt>p{margin-top:18px;color:var(--tekst2);max-width:32em}
+.dane{list-style:none;margin:32px 0 0;padding:0}
+.dane li{padding:16px 0;border-top:1px solid #D3D6DA;display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px}
+.dane li:last-child{border-bottom:1px solid #D3D6DA}
+.dane span{color:var(--tekst2);font-size:15px}
+.dane a{font-weight:600;text-decoration:none;overflow-wrap:anywhere}
+.dane a:hover{text-decoration:underline}
+.soc{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;font-size:15px}
+.soc a{color:var(--tekst2)}
+.form{background:#fff;padding:clamp(24px,3vw,48px);clip-path:polygon(0 0,100% 0,100% calc(100% - 70px),calc(100% - 32px) 100%,0 100%)}
+.form h3{font-size:22px}
+.pola{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.pole{display:flex;flex-direction:column;gap:7px;min-width:0}
+.pole.cal{grid-column:1/-1}
+.pole label{font-size:14.5px;font-weight:600}
+.pole input,.pole select,.pole textarea{width:100%;font:inherit;font-size:16px;color:var(--tekst);padding:13px 14px;border:1px solid #C9CCD0;background:#fff;border-radius:0;min-width:0}
+.pole textarea{min-height:130px;resize:vertical}
+.pole input:focus,.pole select:focus,.pole textarea:focus{outline:2px solid var(--braz);outline-offset:-1px;border-color:var(--braz)}
+.zgoda{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--tekst2);margin-top:18px;line-height:1.5}
+.zgoda input{margin-top:3px;width:17px;height:17px;accent-color:var(--braz);flex:none}
+.form .btn{margin-top:22px}
+.info{margin-top:14px;font-size:14.5px;color:var(--braz-c);min-height:1.5em}
+.mapa{margin-top:clamp(48px,6vw,88px);height:clamp(300px,32vw,440px);background:#E4E6E9;position:relative}
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.35)}
+
+/* stopka */
+.stopka{padding:clamp(56px,6vw,88px) 0 28px;background:#fff;color:var(--tekst);font-size:15.5px}
+.st-g{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:32px}
+.stopka h4{margin:0 0 12px;font-size:15.5px;font-weight:600}
+.stopka ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.stopka a{text-decoration:none;color:var(--tekst2);overflow-wrap:anywhere}
+.stopka a:hover{color:var(--tekst)}
+.st-g>div>p{color:var(--tekst2);margin-top:16px;line-height:1.6}
+.stopka .logo svg{width:24px;height:29px}.stopka .logo span{font-size:24px}
+.st-d{margin-top:48px;padding-top:22px;border-top:1px solid var(--linia);display:flex;justify-content:space-between;align-items:center;gap:14px 24px;flex-wrap:wrap;color:var(--tekst2);font-size:14.5px}
+
+/* pasek na telefonie */
+.mob{display:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:90;background:rgba(18,17,16,.94);display:none;align-items:center;justify-content:center;flex-direction:column;padding:56px 12px 24px}
+.lb.on{display:flex}
+.lb img{max-width:min(1400px,100%);max-height:calc(100svh - 150px);width:auto;height:auto;object-fit:contain}
+.lb p{color:#fff;margin-top:16px;text-align:center;font-size:15.5px}
+.lb p span{color:rgba(255,255,255,.6);margin-left:10px}
+.lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;width:56px;height:56px;display:grid;place-items:center}
+.lb .x{top:6px;right:6px}.lb .pv{left:6px;top:50%;transform:translateY(-50%)}.lb .nx{right:6px;top:50%;transform:translateY(-50%)}
+.lb svg{width:26px;height:26px;stroke:currentColor;stroke-width:1.8;fill:none}
+
+@media (max-width:1279px){.nav{gap:22px}.top .tel span{display:none}}
+@media (min-width:760px){.pas{grid-auto-columns:calc((100% - 16px)/2.2)}}
+@media (min-width:1280px){.pas{grid-auto-columns:calc((100% - 48px)/3);gap:24px}}
+@media (min-width:1700px){.pas{grid-auto-columns:calc((100% - 72px)/4)}}
+@media (max-width:1100px){
+ .oferta{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .prac,.proc,.kont{grid-template-columns:minmax(0,1fr)}
+ .proc figure{max-width:520px}
+ .st-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .st-g>div:first-child{grid-column:1/-1}
+}
+@media (max-width:980px){
+ :root{--hh:64px}
+ .nav,.top .tel{display:none}
+ .burger{display:block}
+ .top .mtel{display:inline-flex;margin-left:auto;width:46px;height:46px;align-items:center;justify-content:center}
+ .top .mtel+.burger{margin-left:0}
+ .logo svg{width:23px;height:28px}.logo span{font-size:23px}
+ .mnav{display:block;position:fixed;inset:var(--hh) 0 0 0;background:#fff;color:var(--tekst);padding:12px clamp(16px,3.4vw,64px) 32px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility 0s .2s;overflow-y:auto}
+ .menu-open .mnav{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .2s}
+ .menu-open .top{background:#fff;color:var(--tekst);box-shadow:0 1px 0 var(--linia)}
+ .mnav a{display:block;text-decoration:none;font-size:22px;font-weight:500;padding:15px 0;border-bottom:1px solid var(--linia)}
+ .mnav .btn{display:inline-flex;margin-top:28px;font-size:16px;border:0;padding:0 40px 0 26px}
+ .mnav .tel{display:inline-flex;margin-top:22px;font-size:17px;border:0}
+}
+@media (min-width:981px){.top .mtel{display:none}}
+@media (max-width:760px){
+ body{font-size:16.5px}
+ .hero{clip-path:polygon(0 0,100% 0,100% calc(100% - 64px),calc(100% - 29px) 100%,0 100%)}
+ .hero picture img{object-position:50% 50%}
+ .hero::after{background:linear-gradient(0deg,rgba(24,22,20,.9) 0%,rgba(24,22,20,.66) 40%,rgba(24,22,20,.1) 70%,rgba(24,22,20,.4) 100%)}
+ .hero-in{padding-bottom:clamp(44px,7svh,64px)}
+ .hero h1{font-size:clamp(31px,8.6vw,40px)}
+ .hero .lead{margin-top:16px;font-size:16.5px}
+ .hero .btn{margin-top:26px}
+ .hero .adr{margin-top:16px;font-size:14px}
+ .glowa{flex-direction:column;align-items:flex-start}
+ .pas-nav{display:none}
+ .oferta{gap:28px 14px}
+ .of h3{font-size:17px;margin-top:12px}
+ .of p{font-size:14.5px}
+ .kr-f,.of-f{clip-path:polygon(0 0,100% 0,100% calc(100% - 32px),calc(100% - 15px) 100%,0 100%)}
+ .pola{grid-template-columns:minmax(0,1fr)}
+ .dane li{grid-template-columns:minmax(0,1fr);gap:2px}
+ .kroki li{grid-template-columns:40px minmax(0,1fr);gap:14px}
+ .kroki .zn{width:34px;height:26px}
+ .mob{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;box-shadow:0 -1px 0 var(--linia);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px;transform:translateY(110%);transition:transform .25s}
+ .mob.widac{transform:none}
+ .mob a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;text-decoration:none;font-weight:600;font-size:15.5px}
+ .mob .m1{border:1px solid #C9CCD0}
+ .mob .m2{background:var(--braz);color:#fff;clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%)}
+ .stopka{padding-bottom:96px}
+}
+@media (max-height:700px) and (max-width:760px){.hero h1{font-size:clamp(28px,7.8vw,34px)}.hero .lead{font-size:15.5px;margin-top:12px}.hero .btn{margin-top:26px}.hero-in{padding-top:calc(var(--hh) + 24px);padding-bottom:40px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+{{BADGE_STYLE}}
+</head>
+<body>
+<header class="top" id="top">
+ <div class="wrap">
+  <a class="logo" href="#" aria-label="Architaste - strona główna"><svg viewBox="0 0 80 100" aria-hidden="true"><path d="M35 2 79 99 57 99 49 78 2 78 8 63 41 63 26 26Z"/></svg><span>architaste</span></a>
+  <nav class="nav" aria-label="Menu główne">
+   <a href="#realizacje">Realizacje</a><a href="#oferta">Oferta</a><a href="#pracownia">Pracownia</a><a href="#proces">Jak pracujemy</a><a href="#kontakt">Kontakt</a>
+  </nav>
+  <a class="tel" href="tel:+48785850079"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span>785 850 079</span></a>
+  <a class="tel mtel" href="tel:+48785850079" aria-label="Zadzwoń: 785 850 079"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg></a>
+  <button class="burger" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mnav"><i></i><i></i><i></i></button>
+ </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Menu">
+ <a href="#realizacje">Realizacje</a><a href="#oferta">Oferta</a><a href="#pracownia">Pracownia</a><a href="#proces">Jak pracujemy</a><a href="#kontakt">Kontakt</a>
+ <a class="btn" href="#kontakt">Zapytaj o projekt</a><br>
+ <a class="tel" href="tel:+48785850079">+48 785 850 079</a>
+</nav>
+
+<main>
+<section class="hero" aria-label="Architaste">
+ <picture>
+  <source media="(max-width:760px)" srcset="img/hero-m-540.webp 540w, img/hero-m-853.webp 853w" sizes="100vw" width="853" height="1280">
+  <img src="img/hero-1600.webp" srcset="img/hero-1024.webp 1024w, img/hero-1600.webp 1600w, img/hero-1920.webp 1920w" sizes="100vw" width="1920" height="1280" alt="Salon z zieloną sofą i czarno-białym sufitem, projekt i realizacja Architaste" fetchpriority="high">
+ </picture>
+ <div class="hero-in wrap">
+  <h1><span>Projektowanie wnętrz w Krakowie.</span> <span>Wnętrza ze smakiem.</span></h1>
+  <p class="lead">Projektujemy mieszkania, domy, biura i lokale. Od pomiaru i pierwszej koncepcji po meble na wymiar i nadzór nad wykończeniem.</p>
+  <a class="btn" href="#kontakt">Zapytaj o projekt <svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5"/></svg></a>
+  <p class="adr">Pracownia Architaste, ul. Słomnicka 4, Kraków</p>
+ </div>
+</section>
+
+<section class="sek" id="pracownia">
+ <div class="wrap prac">
+  <div class="txt">
+   <h2>Architektura ze smakiem</h2>
+   <p>Od 2013 roku projektujemy wnętrza prywatne, biurowe i komercyjne. Zależy nam, żeby wnętrze było ładne, ale przede wszystkim wygodne na co dzień.</p>
+   <p>Pracownię mamy w centrum Krakowa, a projektujemy w całej Polsce, najczęściej w Małopolsce, na Mazowszu i Podkarpaciu. Dobry projekt to dla nas nie wszystko: liczy się to, jak wnętrze wygląda po wykończeniu. Dlatego pracujemy ze sprawdzonymi ekipami i stolarzami, a przy projekcie pod klucz pilnujemy prac na miejscu.</p>
+  </div>
+  <ul class="wyr">
+   <li><svg class="zn" viewBox="0 0 34 26" aria-hidden="true"><path d="M1 18h20M14 1l11 24"/></svg><div><b>Lider w projektowaniu funkcjonalnych wnętrz</b><span>nagroda Polish Businesswoman Awards</span></div></li>
+   <li><svg class="zn" viewBox="0 0 34 26" aria-hidden="true"><path d="M1 18h20M14 1l11 24"/></svg><div><b>TOP 100 Poland 2022</b><span>wyróżnienie dla pracowni</span></div></li>
+   <li><svg class="zn" viewBox="0 0 34 26" aria-hidden="true"><path d="M1 18h20M14 1l11 24"/></svg><div><b>Publikacje w magazynach wnętrzarskich</b><span>m.in. Czas na Wnętrze, M jak Mieszkanie, Wnętrze i Ogród</span></div></li>
+   <li><svg class="zn" viewBox="0 0 34 26" aria-hidden="true"><path d="M1 18h20M14 1l11 24"/></svg><div><b>Projekty mebli na wymiar</b><span>kuchnie, garderoby, zabudowy salonu i łazienki</span></div></li>
+  </ul>
+ </div>
+</section>
+
+<section class="sek sz" id="realizacje">
+ <div class="wrap">
+  <div class="glowa">
+   <div><h2>Realizacje</h2><p>Wnętrza, które już służą naszym klientom. Kliknij zdjęcie, żeby obejrzeć je w całości.</p></div>
+   <div class="pas-nav"><button type="button" class="pp" aria-label="Poprzednie realizacje"><svg viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 7H2M7 1 1 7l6 6"/></svg></button><button type="button" class="pn" aria-label="Następne realizacje"><svg viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 7h16M11 1l6 6-6 6"/></svg></button></div>
+  </div>
+  <ul class="pas" id="pas">
+{{REAL}}
+  </ul>
+ </div>
+</section>
+
+<section class="sek" id="oferta">
+ <div class="wrap">
+  <div class="glowa"><div><h2>Co projektujemy</h2><p>Każdy projekt zaczynamy od rozmowy o tym, jak mieszkasz albo pracujesz. Dopiero potem dobieramy układ, materiały i kolory.</p></div></div>
+  <ul class="oferta">
+{{OFERTA}}
+  </ul>
+  <div class="meble"><p><b>Pakiet pod klucz:</b> oprócz projektu prowadzimy nadzór nad pracami wykończeniowymi. To wygodne, gdy nie masz czasu pilnować ekip i dostaw.</p><a class="btn" href="#kontakt">Zapytaj o pakiety <svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5"/></svg></a></div>
+ </div>
+</section>
+
+<section class="sek ciem" id="proces">
+ <div class="wrap proc">
+  <figure><div class="fot"><img src="img/zespol-600.webp" srcset="img/zespol-600.webp 600w, img/zespol-900.webp 900w" sizes="(min-width:1100px) 36vw, (min-width:560px) 520px, 92vw" width="600" height="750" alt="Zespół pracowni Architaste" loading="lazy" decoding="async"></div><figcaption>Zespół pracowni Architaste</figcaption></figure>
+  <div>
+   <h2>Jak pracujemy</h2>
+   <p class="lead">Projekt powstaje w kilku etapach. Na każdym widzisz, co przygotowaliśmy, i możesz wprowadzić zmiany, zanim ruszą prace.</p>
+   <ol class="kroki">
+    <li><svg class="zn" viewBox="0 0 34 26" aria-hidden="true"><path d="M1 18h20M14 1l11 24"/></svg><div><h3>Spotkanie i ankieta</h3><p>Rozmawiamy o potrzebach i stylu, pokazujemy wcześniejsze projekty, katalogi i zdjęcia.</p></div></li>
+    <li><svg class="zn" viewBox="0 0 34 26" aria-hidden="true"><path d="M1 18h20M14 1l11 24"/></svg><div><h3>Inwentaryzacja</h3><p>Mierzymy wszystkie pomieszczenia i budujemy model 3D wnętrza, na którym potem pracujemy.</p></div></li>
+    <li><svg class="zn" viewBox="0 0 34 26" aria-hidden="true"><path d="M1 18h20M14 1l11 24"/></svg><div><h3>Projekt koncepcyjny</h3><p>Wizualizacje i rzuty pokazują układ i wygląd pomieszczeń, zanim cokolwiek zostanie kupione.</p></div></li>
+    <li><svg class="zn" viewBox="0 0 34 26" aria-hidden="true"><path d="M1 18h20M14 1l11 24"/></svg><div><h3>Dopracowanie szczegółów</h3><p>Dobieramy kolory, materiały, oświetlenie i wyposażenie, przygotowujemy dokumentację dla wykonawców.</p></div></li>
+    <li><svg class="zn" viewBox="0 0 34 26" aria-hidden="true"><path d="M1 18h20M14 1l11 24"/></svg><div><h3>Realizacja</h3><p>W pakiecie pod klucz zostajemy z Tobą do końca prac i pilnujemy, żeby efekt był taki jak w projekcie.</p></div></li>
+   </ol>
+   <a class="btn" href="#kontakt">Zacznijmy od rozmowy <svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5"/></svg></a>
+  </div>
+ </div>
+</section>
+
+<section class="sek sz" id="kontakt">
+ <div class="wrap">
+  <div class="kont">
+   <div class="txt">
+    <h2>Porozmawiajmy o Twoim wnętrzu</h2>
+    <p>Napisz kilka słów o mieszkaniu, domu albo lokalu: metraż, miasto, na kiedy potrzebujesz projektu. Odpowiemy i zaproponujemy termin pierwszej rozmowy.</p>
+    <ul class="dane">
+     <li><span>Adres</span><div>ul. Słomnicka 4/LU1, 30-003 Kraków</div></li>
+     <li><span>Telefon</span><a href="tel:+48785850079">+48 785 850 079</a></li>
+     <li><span>E-mail</span><a href="mailto:biuro@architaste.com.pl">biuro@architaste.com.pl</a></li>
+    </ul>
+    <div class="soc"><a href="https://www.facebook.com/Architaste" rel="noopener">Facebook</a><a href="https://www.instagram.com/architaste.com.pl/" rel="noopener">Instagram</a><a href="https://www.youtube.com/@architaste." rel="noopener">YouTube</a><a href="https://www.tiktok.com/@architaste.pl" rel="noopener">TikTok</a></div>
+   </div>
+   <form class="form" id="form" novalidate>
+    <h3>Zapytanie o projekt</h3>
+    <div class="pola">
+     <div class="pole"><label for="f1">Imię</label><input id="f1" name="imie" autocomplete="name"></div>
+     <div class="pole"><label for="f2">Telefon lub e-mail</label><input id="f2" name="kontakt" autocomplete="email"></div>
+     <div class="pole"><label for="f3">Rodzaj wnętrza</label><select id="f3" name="rodzaj"><option>Mieszkanie</option><option>Dom</option><option>Kuchnia lub łazienka</option><option>Biuro</option><option>Restauracja lub lokal</option></select></div>
+     <div class="pole"><label for="f4">Miasto</label><input id="f4" name="miasto" placeholder="np. Kraków"></div>
+     <div class="pole cal"><label for="f5">Wiadomość</label><textarea id="f5" name="wiadomosc" placeholder="Metraż, termin, czego potrzebujesz"></textarea></div>
+    </div>
+    <label class="zgoda"><input type="checkbox" required> Zgadzam się na przetwarzanie moich danych w celu odpowiedzi na zapytanie.</label>
+    <button class="btn" type="submit">Wyślij zapytanie <svg viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5"/></svg></button>
+    <p class="info" id="info" aria-live="polite"></p>
+   </form>
+  </div>
+  <div class="mapa" id="mapa" data-src="https://www.google.com/maps?q=S%C5%82omnicka%204%2C%2030-003%20Krak%C3%B3w&amp;output=embed"><span class="sr">Mapa dojazdu: ul. Słomnicka 4, Kraków</span></div>
+ </div>
+</section>
+</main>
+
+<footer class="stopka">
+ <div class="wrap">
+  <div class="st-g">
+   <div><a class="logo" href="#" aria-label="Architaste"><svg viewBox="0 0 80 100" aria-hidden="true"><path d="M35 2 79 99 57 99 49 78 2 78 8 63 41 63 26 26Z"/></svg><span>architaste</span></a><p>Pracownia architektury wnętrz<br>ul. Słomnicka 4/LU1, 30-003 Kraków</p></div>
+   <div><h4>Kontakt</h4><ul><li><a href="tel:+48785850079">+48 785 850 079</a></li><li><a href="mailto:biuro@architaste.com.pl">biuro@architaste.com.pl</a></li><li><a href="https://www.facebook.com/Architaste" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/architaste.com.pl/" rel="noopener">Instagram</a></li></ul></div>
+   <div><h4>Oferta</h4><ul><li><a href="#oferta">Projektowanie mieszkania</a></li><li><a href="#oferta">Projektowanie domu</a></li><li><a href="#oferta">Kuchnie i łazienki</a></li><li><a href="#oferta">Biura i lokale</a></li></ul></div>
+   <div><h4>Pracownia</h4><ul><li><a href="#realizacje">Realizacje</a></li><li><a href="#pracownia">O nas</a></li><li><a href="#proces">Jak pracujemy</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
+  </div>
+  <div class="st-d"><span>© 2026 Architaste. Podgląd koncepcji nowej strony.</span>{{BADGE_LINK}}</div>
+ </div>
+</footer>
+
+<div class="mob" id="mob"><a class="m1" href="tel:+48785850079">Zadzwoń</a><a class="m2" href="#kontakt">Zapytaj o projekt</a></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie">
+ <button class="x" type="button" aria-label="Zamknij"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+ <button class="pv" type="button" aria-label="Poprzednie zdjęcie"><svg viewBox="0 0 24 24"><path d="M15 4 7 12l8 8"/></svg></button>
+ <img alt="">
+ <p></p>
+ <button class="nx" type="button" aria-label="Następne zdjęcie"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
+</div>
+
+<script>
+(()=>{
+const top=document.getElementById('top'),hero=document.querySelector('.hero'),mob=document.getElementById('mob');
+const onS=()=>{top.classList.toggle('sc',scrollY>40);mob.classList.toggle('widac',hero.getBoundingClientRect().bottom<80)};
+addEventListener('scroll',onS,{passive:true});onS();
+const b=document.querySelector('.burger');
+const zamknij=()=>{document.body.classList.remove('menu-open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Otwórz menu')};
+b.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Zamknij menu':'Otwórz menu')});
+document.querySelectorAll('.mnav a').forEach(a=>a.addEventListener('click',zamknij));
+/* pas realizacji: strzalki + przeciaganie mysza */
+const pas=document.getElementById('pas'),pp=document.querySelector('.pp'),pn=document.querySelector('.pn');
+const krok=()=>pas.querySelector('.kr').getBoundingClientRect().width+parseFloat(getComputedStyle(pas).columnGap||16);
+const stan=()=>{pp.disabled=pas.scrollLeft<4;pn.disabled=pas.scrollLeft+pas.clientWidth>=pas.scrollWidth-4};
+pp.onclick=()=>pas.scrollBy({left:-krok(),behavior:'smooth'});pn.onclick=()=>pas.scrollBy({left:krok(),behavior:'smooth'});
+pas.addEventListener('scroll',stan,{passive:true});addEventListener('resize',stan);stan();
+let dx=0,sx=0,sl=0,down=false,moved=false;
+pas.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=pas.scrollLeft});
+addEventListener('pointermove',e=>{if(!down)return;dx=e.clientX-sx;if(Math.abs(dx)>6){moved=true;pas.classList.add('drag')}if(moved)pas.scrollLeft=sl-dx});
+addEventListener('pointerup',()=>{if(!down)return;down=false;if(moved){const k=krok();pas.classList.remove('drag');pas.scrollTo({left:Math.round(pas.scrollLeft/k)*k,behavior:'smooth'})}});
+pas.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+/* lightbox */
+const lb=document.getElementById('lb'),li=lb.querySelector('img'),lp=lb.querySelector('p');let grp=[],ix=0,last=null;
+const pokaz=()=>{const t=grp[ix];li.src=t.dataset.full;li.alt=t.dataset.cap;lp.innerHTML='';lp.textContent=t.dataset.cap;const s=document.createElement('span');s.textContent=(ix+1)+' / '+grp.length;lp.appendChild(s)};
+document.querySelectorAll('[data-full]').forEach(t=>t.addEventListener('click',()=>{grp=[...t.closest('ul').querySelectorAll('[data-full]')];ix=grp.indexOf(t);last=t;li.src=t.querySelector('img').currentSrc;pokaz();lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.x').focus()}));
+const zam=()=>{lb.classList.remove('on');document.body.style.overflow='';last&&last.focus()};
+lb.querySelector('.x').onclick=zam;lb.querySelector('.pv').onclick=()=>{ix=(ix-1+grp.length)%grp.length;pokaz()};lb.querySelector('.nx').onclick=()=>{ix=(ix+1)%grp.length;pokaz()};
+lb.addEventListener('click',e=>{if(e.target===lb)zam()});
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')zam();if(e.key==='ArrowLeft')lb.querySelector('.pv').click();if(e.key==='ArrowRight')lb.querySelector('.nx').click()});
+let tx=0;lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)(d<0?lb.querySelector('.nx'):lb.querySelector('.pv')).click()});
+/* mapa przy przewinieciu */
+const m=document.getElementById('mapa');new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){const f=document.createElement('iframe');f.src=m.dataset.src;f.title='Mapa: ul. Słomnicka 4, Kraków';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';m.appendChild(f);o.disconnect()}},{rootMargin:'300px'}).observe(m);
+/* formularz pokazowy */
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('info').textContent='To podgląd strony, formularz nie wysyła jeszcze wiadomości. Na docelowej stronie zapytanie trafi na biuro@architaste.com.pl.'});
+})();
+</script>
+</body>
+</html>
